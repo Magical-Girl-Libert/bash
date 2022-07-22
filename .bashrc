@@ -117,14 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 # 自分で追記した分
-source ~/.myconf.profile
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-WINDOWS_USERNAME="liber"
-export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
-# set JAVA_HOME adn append PATH
-JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-export JAVA_HOME
-PATH=$PATH:$JAVA_HOME/bin
-export PATH
+if [ -f ~/.myconf.profile ]; then source ~/.myconf.profile ; fi
+
